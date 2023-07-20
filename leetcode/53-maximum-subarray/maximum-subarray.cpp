@@ -1,3 +1,5 @@
+// dp tabulation used
+// time = O(n), space = O(n) 
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
