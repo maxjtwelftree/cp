@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        // O(n), n = num of kids
         int n = candies.size();
         vector<bool>arr(candies.size(),false);
         int m = *max_element(candies.begin(),candies.end());
