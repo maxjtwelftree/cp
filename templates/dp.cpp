@@ -3,6 +3,8 @@
 // Returns: The result of applying the dynamic programming algorithm to the given functions f and g and input size n
 // Description: Solves a problem by breaking it down into smaller subproblems and solving them recursively using functions f and g
 // Example: Cutting larger problems into smaller ones (LC 70. Climbing Stairs)
+// Memoization: Time Complexity: O(n), Space Complexity: O(n)
+// Tabulation: Time Complexity: O(n), Space Complexity: O(1)
 
 ---------------------
 
