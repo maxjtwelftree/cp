@@ -99,3 +99,9 @@ public:
         return size;
     }
 };
+
+// Notes: 
+// The insertFront() and insertBack() methods are used to add elements to the linked list.
+// The deleteFront() and deleteBack() methods are used to remove elements from the linked list.
+// The empty() method is used to check if the linked list is empty.
+// The size() method is used to get the size of the linked list.
