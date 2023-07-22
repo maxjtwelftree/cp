@@ -1,6 +1,6 @@
-# LC solutions with leetsync
+# Templates
 
-Templates include:
+Includes:
 - title
 - parameters
 - returns
