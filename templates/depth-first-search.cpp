@@ -3,6 +3,8 @@
 // Returns: A list of all vertices in the graph that can be reached from the starting vertex start
 // Description: Performs a depth-first search on a graph starting from the given vertex start
 
+---------------------
+
 // Definition for a tree node
 struct TreeNode {
     int val;
@@ -11,7 +13,6 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-// DFS function for graphs (adjacency list representation)
 // If working with a binary tree, replace `vector<vector<int>>` with the appropriate tree representation
 void dfs(vector<vector<int>>& graph, int node, vector<bool>& visited) {
     // Mark the current node as visited
