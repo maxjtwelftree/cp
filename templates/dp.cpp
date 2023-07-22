@@ -4,6 +4,8 @@
 // Description: Solves a problem by breaking it down into smaller subproblems and solving them recursively using functions f and g
 // Example: Cutting larger problems into smaller ones (LC 70. Climbing Stairs)
 
+---------------------
+
 // Memoization (Top-Down) approach using unordered_map
 int fibMemo(int n, std::unordered_map<int, int>& memo) {
     if (n <= 1) {
@@ -18,6 +20,8 @@ int fibMemo(int n, std::unordered_map<int, int>& memo) {
     return memo[n];
 }
 
+---------------------
+
 // Tabulation (Bottom-Up) approach using vector
 int fibTab(int n) {
     std::vector<int> dp(n + 1, 0);
@@ -30,6 +34,8 @@ int fibTab(int n) {
 
     return dp[n];
 }
+
+---------------------
 
 // Notes: The fibMemo function represents the memoization approach. 
 // It uses an unordered_map called memo to store the previously computed Fibonacci numbers, avoiding redundant calculations. 
