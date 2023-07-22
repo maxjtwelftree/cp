@@ -34,3 +34,8 @@ public:
         return data.size();
     }
 };
+
+// Notes:
+// The push() and pop() methods are used to add and remove elements from the stack.
+// The empty() method is used to check if the stack is empty.
+// The size() method is used to get the size of the stack.
