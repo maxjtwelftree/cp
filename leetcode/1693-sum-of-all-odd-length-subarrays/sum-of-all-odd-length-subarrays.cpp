@@ -1,20 +1,22 @@
 class Solution {
 public:
     int sumOddLengthSubarrays(vector<int>& arr) {
-        int sum = 0;
-        for (int i = 0; i < arr.size(); i++) {
-            for (int k = i; k < arr.size(); k++) {
-                for (int j = i; j <= k; j++) {
-                    if ((i + k) % 2 == 0) {
-                        sum = sum + arr[j];
-                    }
-                }
+        int n = arr.size();
+        int result = 0; 
+        // start with result and n to make code cleaner 
+        for (int i = 0; i < n; i++) {
+            int start = n - i;
+            int end = i + 1;
+            int total = start * end;
+            int odd = total/2;
+            // give values for notes 
+            if (total % 2 == 1) {
+                odd++;
             }
+            // check if total equals an odd 
+            result += odd * arr[i];
+            // give result value, += is equivalent to result = result + (odd * arr[i])
         }
-        return sum;
-        // understand a little better due to OOP, still not fully understood
-        // time = O(n^3), three nested for loops
-        // A more efficient approach would be to use a sliding window or a hash table to keep track of the sums of the subarrays, which could reduce the time complexity to O(n) or O(n log n)
-        // Need to analyse greater 
+        return result;
     }
 };
