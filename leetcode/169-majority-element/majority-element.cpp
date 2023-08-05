@@ -1,20 +1,21 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        map<int, int> MaxsMap;
+        int n = nums.size();
+        int majority = nums[0], votes = 1;
 
-        for (auto num : nums) {
-            MaxsMap[num]++;
-        }
-
-        int maximimum = 0;
-        int majority = 0;
-        for (const auto& pair : MaxsMap) {
-            if (pair.second > maximimum) {
-                maximimum = pair.second;
-                majority = pair.first;
+        for (int i = 1; i < n; i++) {
+            if (votes == 0) {
+                votes++;
+                majority = nums[i];
+            }
+            else if (majority == nums[i]) {
+                votes++;
+            }
+            else {
+                votes--;
             }
         }
         return majority;
-    } 
+    }
 };
