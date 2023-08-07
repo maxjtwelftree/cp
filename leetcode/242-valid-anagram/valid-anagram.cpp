@@ -1,19 +1,11 @@
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        unordered_map <char, int> map1, map2;
-
-        for (char ch : s) {
-            map1[ch]++;
-        }
-
-        for (char ch : t) {
-            map2[ch]++;
-        }  
-
-        if (map1 == map2) {
+        sort(s.begin(), s.end());
+        sort(t.begin(), t.end());
+        if (s == t) {
             return true;
         }
-        return false;     
+        return false;
     }
 };
