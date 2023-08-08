@@ -8,12 +8,11 @@ public:
             sort(word.begin(), word.end());
             map[word].push_back(x);
         }
-
+        
         vector<vector<string>> ans;
         for (auto x : map) {
             ans.push_back(x.second);
         }
-
         return ans;
     }
-};            
+};
