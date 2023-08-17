@@ -3,6 +3,7 @@ public:
     int longestPalindrome(string s) {
         unordered_map<char, int> map;
         int oddCount = 0;
+
         for (char ch : s) {
             map[ch]++;
             if (map[ch] % 2 == 1) {
