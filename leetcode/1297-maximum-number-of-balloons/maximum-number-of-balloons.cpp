@@ -2,7 +2,6 @@ class Solution {
 public:
     int maxNumberOfBalloons(string text) {
         unordered_map<char, int> map;
-        int count = 0;
         for (char ch : text) {
             map[ch]++;
         }
