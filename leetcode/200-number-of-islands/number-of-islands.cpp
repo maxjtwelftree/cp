@@ -21,23 +21,23 @@ public:
                         // up
                         if(curr_i - 1 >= 0 && grid[curr_i - 1][curr_j] == '1') {
                             q.push({curr_i - 1, curr_j});
-                            grid[curr_i-1][curr_j] = '9';
+                            grid[curr_i-1][curr_j] = '2';
 
                         }
                         //down
                         if(curr_i + 1 < m && grid[curr_i + 1][curr_j] == '1') {
                             q.push({curr_i + 1, curr_j});
-                            grid[curr_i+1][curr_j] = '9';
+                            grid[curr_i+1][curr_j] = '2';
                         }
                         //left
                         if(curr_j - 1 >= 0 && grid[curr_i][curr_j - 1] == '1') {
                             q.push({curr_i, curr_j-1});
-                            grid[curr_i][curr_j-1] = '9';
+                            grid[curr_i][curr_j-1] = '2';
                         }
                         //right
                         if(curr_j + 1 < n && grid[curr_i][curr_j + 1] == '1') {
                             q.push({curr_i, curr_j+1});
-                            grid[curr_i][curr_j+1] = '9';
+                            grid[curr_i][curr_j+1] = '2';
                         }                     
                         // go to next
                     }
