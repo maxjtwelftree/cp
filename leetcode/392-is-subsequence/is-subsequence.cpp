@@ -3,14 +3,19 @@ public:
     bool isSubsequence(string s, string t) {
         int n = s.size();
         int x = t.size();
-        int j = 0;
+        int i = 0;
+        int count = 0;
 
-        for (int i = 0; i < x && j < n; i++) {
-            if (s[j] == t[i]) {
-                j++;
+        for (int j = 0; j<x; j++) {
+            if (t[j] == s[i]) {
+                i++;
             }
         }
-        return (j==n);
+
+        if (i == n) {
+            return true;
+        }
+        return false;
         
     }
 };
