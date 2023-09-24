@@ -7,7 +7,7 @@ class Solution {
         else if (image[sr][sc]!=source) {
             return;
         }
-
+ // Marking the cell as visited by changing its color
         image[sr][sc] = color;
         
         dfs(image, sr-1, sc, color, rows, cols, source); // top
