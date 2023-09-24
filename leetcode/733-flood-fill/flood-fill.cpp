@@ -1,4 +1,5 @@
 class Solution {
+public:
     void dfs(vector<vector<int>>& image, int sr, int sc, int color, int rows, int cols, int source) {
         // boundary case when beginning
         if (sr < 0 || sr >= rows || sc < 0 || sc >= cols) {
@@ -15,7 +16,7 @@ class Solution {
         dfs(image, sr, sc-1, color, rows, cols, source); // left
         dfs(image, sr, sc+1, color, rows, cols, source); // right
     }
-public:
+
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         // first make the check to kill infinite loop and return 
         if (color == image[sr][sc]) {
