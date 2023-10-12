@@ -4,14 +4,10 @@ public:
         // dp array w amount
         int dp[amount + 1];
 
-        // for (int i = 0; i <= amount; i++) {
-        //     dp[i] = amount + 1;
-        // }
-        // set to 0
-        // dp[0] = 0;
-
         for (int i = 0; i <= amount; i++) {
+            // init i to our array boundaries
             dp[i] = amount + 1;
+            // set 0 to 0 
             dp[0] = 0;
             for (int coin : coins) {
                 if (i - coin >= 0) {
