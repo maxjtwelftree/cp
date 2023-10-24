@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> largestValues(TreeNode* root) {
         if (!root) return {};
-
         vector<int> ans;
         queue<TreeNode*> q;
         q.push(root);
