@@ -1,11 +1,6 @@
 class Solution {
 public:
     int cnt = 0;
-    int averageOfSubtree(TreeNode* root) {
-        vector<int> out = dfs(root);
-        return cnt;
-    }
-
     vector<int> dfs(TreeNode* root) {
         if (root == NULL) return {0,0};
 
@@ -20,5 +15,10 @@ public:
         }
         
         return {sum, nodes};
+    }
+
+    int averageOfSubtree(TreeNode* root) {
+        vector<int> out = dfs(root);
+        return cnt;
     }
 };
