@@ -1,10 +1,10 @@
 class Solution {
 public:
     vector<string> buildArray(vector<int>& target, int n) {
-        vector<string> out;
-        int i = 0;
+        auto out = vector<string>();
+        auto i = 0;
 
-        for (int val : target) {
+        for (auto val : target) {
             while (i < val - 1) {
                 out.push_back("Push");
                 out.push_back("Pop");
