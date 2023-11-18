@@ -24,6 +24,8 @@ public:
             curr += t;
 
             // this line
+            // 1,2,4
+            //   r   l = 3 * 2 = 6 - 4 > 2 then we increment l
             while ((r - l + 1) * t - curr > k) {
                 curr -= nums[l];
                 l++;
@@ -31,6 +33,7 @@ public:
 
             ans = max(ans, r - l + 1);
         }
+
 
         return ans;
     }
