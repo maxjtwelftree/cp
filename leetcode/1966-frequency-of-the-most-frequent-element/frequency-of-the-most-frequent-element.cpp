@@ -5,10 +5,25 @@ public:
         int l = 0, ans = 0;
         long long curr = 0;
 
+        // [1,2,4]
+        //  l
+        //. r
+
+        // t = 1;
+        // curr += 1;
+        // 1-1 * 1 - > K ???
+        // keep going till that does and then we decrement current, 
+
+        // and left++ 
+
+        // 1,2,4
+        // keeps going till r is greater and curr is greater than k
+
         for (int r = 0; r < nums.size(); r++) {
             long long t = nums[r];
             curr += t;
 
+            // this line
             while ((r - l + 1) * t - curr > k) {
                 curr -= nums[l];
                 l++;
