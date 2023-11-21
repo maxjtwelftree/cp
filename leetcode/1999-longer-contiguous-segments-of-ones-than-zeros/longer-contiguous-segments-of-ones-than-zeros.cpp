@@ -2,7 +2,6 @@ class Solution {
 public:
     bool checkZeroOnes(string s) {
         int cnt1 = 0, cnt2 = 0, tracker1 = 0, tracker2 = 0;
-        bool flag = false;
 
         for (int i = 0; i < s.size(); i++) {
             if (s[i] == '0') {
