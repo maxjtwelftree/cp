@@ -2,11 +2,18 @@ class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
         int cnt = 0;
-        for (int i = 0; i < jewels.size(); i++) {
-            for (int j = 0; j < stones.size(); j++) {
-                if (jewels[i] == stones[j]) cnt++;
+        set<char> helloooooo;
+        
+        for (char c : jewels) {
+            helloooooo.insert(c);
+        }
+
+        for (char i : stones) {
+            if (helloooooo.find(i) != helloooooo.end()) {
+                cnt++;
             }
         }
+
         return cnt;
     }
 };
