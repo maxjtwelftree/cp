@@ -1,17 +1,9 @@
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
+        piles.sort()
         ans = 0
-        piles.sort() # need to sort for every three
-        queue = deque(piles)
 
-        while queue:
-            queue.pop()
-            ans += queue.pop()
-            queue.popleft()
-        
+        for i in range(len(piles) // 3, len(piles), 2): 
+            ans += piles[i]
+
         return ans
-            
-
-
-
-        
