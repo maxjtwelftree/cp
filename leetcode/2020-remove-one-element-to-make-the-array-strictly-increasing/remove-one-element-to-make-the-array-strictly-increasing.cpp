@@ -14,7 +14,6 @@ public:
                 }
             }
         }
-        return true; // almost got completely, just do not understand last if iteration fully
-        //
+        return true; 
     }
 };
