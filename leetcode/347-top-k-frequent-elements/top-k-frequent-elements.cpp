@@ -1,35 +1,23 @@
 class Solution {
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) {
-        // initalizing a hashmap
-        // <element, frequenct >
-        unordered_map<int, int> freq;
+    [[nodiscard]] auto topKFrequent(std::vector<int>& nums, int k) -> std::vector<int> {
+        std::unordered_map<int, int> find_k_frequency;
 
-        // iterating over the nums array
-        for (int i = 0; i < nums.size(); i++) {
-            // incremeting the elements count
-            freq[nums[i]]++;
+        for (const auto& x : nums) {
+            find_k_frequency[x]++;
         }
 
-        // initalize our array we can sort
-        // array of pairs <frequency, element>
-        vector<pair<int,int>> temp;
-        for(auto [element, frequency] : freq) {
-            temp.push_back({frequency, element});
+        std::vector<std::pair<int, int>> freqVector(find_k_frequency.begin(), find_k_frequency.end());
+        std::sort(freqVector.begin(), freqVector.end(), [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
+            return a.second > b.second;
+        });
+
+        std::vector<int> output;
+        output.reserve(k);
+        for (auto x = 0; x < k; ++x) {
+            output.push_back(freqVector[x].first);
         }
 
-        // sort in descending order (highest freq to lowest)
-        sort(temp.begin(), temp.end());
-        reverse(temp.begin(),temp.end());
-
-        // final store just of element
-        vector<int> out;
-        for(int i = 0; i < k; i++) {
-            out.push_back(temp[i].second);
-        }
-
-        return out;
-         
-        
+        return output;
     }
 };
