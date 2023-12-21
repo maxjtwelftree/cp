@@ -7,7 +7,7 @@ public:
         
         auto finder = 0;
         for (auto i = 1; i < size(points); ++i) 
-            if (points[i][0] - points[i-1][0] > finder) finder = points[i][0] - points[i-1][0];
+            finder = max(finder, points[i][0] - points[i-1][0]);
         
         return finder;
     }
