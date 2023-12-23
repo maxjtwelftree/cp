@@ -1,20 +1,18 @@
 class Solution {
 public:
     bool isPathCrossing(string path) {
-        auto x = 0;
-        auto y = 0;
-        set<pair<int, int>> mapping;
-        mapping.insert(make_pair(x, y));
+        auto x{0};
+        auto y{0};
+        set<pair<int32_t, int32_t>> mapping{{x, y}};
 
-        for (const auto& c : path) {
-            switch(c) {
+        for (const auto direction : path) {
+            switch(direction) {
                 case 'N' : y++; break;
                 case 'E' : x++; break;
                 case 'S' : y--; break;
                 case 'W' : x--; break;
             }
-            if (mapping.count(make_pair(x, y))) return true;
-            mapping.insert(make_pair(x,y));
+            if (!mapping.emplace(x, y).second) return true;
         }
 
         return false;
