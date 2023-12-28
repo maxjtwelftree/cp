@@ -1,13 +1,15 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int,int> m;
-        for (auto i = 0; i < (int)nums.size(); i++) {
-            if (m.count(target - nums[i])) {
-                return {i, m[target - nums[i]]};
+    [[nodiscard]] std::vector<int32_t> twoSum(std::vector<int32_t>& input, int32_t target) {
+        std::unordered_map<int32_t, int32_t> mapping;
+        for (size_t index = 0; index < input.size(); ++index) {
+            auto new_type = target - input[index];
+            if (mapping.count(new_type)) {
+                return {mapping[new_type], static_cast<int32_t>(index)};
             }
-            m[nums[i]] = i;
+            mapping[input[index]] = index;
         }
+
         return {};
-    }
+    }  
 };
