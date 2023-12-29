@@ -5,7 +5,7 @@
 class Solution {
 public:
     int minDifficulty(std::vector<int>& jobDifficulty, int d) {
-        int n = jobDifficulty.size();
+        int32_t n = jobDifficulty.size();
         if (d > n) return -1;
 
         const int32_t max = std::numeric_limits<int32_t>::max();
