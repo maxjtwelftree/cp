@@ -3,7 +3,7 @@ public:
     int minSwaps(string s) {
         stack<char> stacking;
 
-        for (auto c : s) 
+        for (const auto& c : s) 
             if (c == '[') stacking.push(c);
             else if (!stacking.empty()) stacking.pop();
         
