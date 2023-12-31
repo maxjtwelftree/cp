@@ -1,21 +1,14 @@
 class Solution {
 public:
     vector<int> majorityElement(vector<int>& nums) {
-        int n = nums.size();
-        unordered_map<int, int> map;
+        auto mapping_elements = std::unordered_map<int, int>{};
 
-        for (int num : nums) {
-            map[num]++;
-        }
+        for (const auto& i : nums) mapping_elements[i]++;
 
-        int can = n/3;
+        auto output = vector<int>();
 
-        vector<int> out;
-        for (auto i : map) {
-            if (i.second > can) {
-                out.push_back(static_cast<int>(i.first));
-            }
-        }
-        return out;        
+        for (const auto [i, j] : mapping_elements) 
+            if (j > nums.size() / 3) output.push_back(i);
+        return output;
     }
 };
