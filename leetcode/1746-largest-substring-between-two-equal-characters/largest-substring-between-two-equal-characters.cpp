@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int maxLengthBetweenEqualCharacters(string s) {
+    size_t maxLengthBetweenEqualCharacters(string s) {
         unordered_map<char, int> mapping_chars{};
         int max_length{-1};
 
