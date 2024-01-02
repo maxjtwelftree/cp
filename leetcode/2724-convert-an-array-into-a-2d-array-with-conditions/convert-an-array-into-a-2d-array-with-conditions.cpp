@@ -1,26 +1,31 @@
 class Solution {
 public:
     vector<vector<int>> findMatrix(vector<int>& nums) {
-        auto mapping = unordered_map<int, int>{};
-        for (const auto& x : nums) mapping[x]++;
+        std::unordered_map<int, int> counts;
+        for (int num : nums) {
+            counts[num]++;
+        }
 
-        auto custom_sort_vect = vector<pair<int, int>>(mapping.begin(), mapping.end());
-        std::ranges::sort(custom_sort_vect.begin(), custom_sort_vect.end(),
-            [](const auto& a, const auto& b) {
-                return a.second > b.second;
-            });
+        // Custom comparator for the multiset
+        auto comp = [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
+            return a.first > b.first || (a.first == b.first && a.second < b.second);
+        };
+        std::multiset<std::pair<int, int>, decltype(comp)> sortedSet(comp);
 
-        vector<vector<int>> output_vector;
-        for (auto it = custom_sort_vect.begin(); it != custom_sort_vect.end(); ++it) {
-            auto checker1 = it->first, checker2 = it->second;
-            for (auto i = 0; i < checker2; ++i) {
-                if (output_vector.size() <= i) {
-                    output_vector.push_back(std::vector<int>());
+        for (const auto& [num, count] : counts) {
+            sortedSet.insert({count, num});
+        }
+
+        std::vector<std::vector<int>> matrix;
+        for (const auto& [count, num] : sortedSet) {
+            for (int i = 0; i < count; ++i) {
+                if (matrix.size() <= i) {
+                    matrix.emplace_back();
                 }
-                output_vector[i].push_back(checker1);
+                matrix[i].push_back(num);
             }
         }
 
-        return output_vector;
+        return matrix;
     }
 };
