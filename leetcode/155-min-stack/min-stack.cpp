@@ -10,11 +10,11 @@ struct MinStack {
         min_stack.pop_back();
     }
     
-    const int top() {
+    int top() const {
         return min_stack.back().first;
     }
     
-    const int getMin() {
+    int getMin() const {
         return min_stack.back().second;
     }
 };
