@@ -1,15 +1,13 @@
 class HitCounter {
 public:
-    map<int, int> hit_map{};
-
-    HitCounter() {}
+    std::map<int, int> hit_map{};
     
     void hit(int timestamp) {
         hit_map[timestamp]++;
     }
     
     int getHits(int timestamp) {
-        int hit_tacker = 0;
+        auto hit_tacker = 0;
 
         for (const auto& [x, y] : hit_map)
             if (x > timestamp - 300 && x <= timestamp) 
