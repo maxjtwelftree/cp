@@ -1,8 +1,5 @@
-class MinStack {
-private:
+struct MinStack {
     vector<pair<int, int>> min_stack{};
-public:
-    MinStack() {}
     
     void push(int val) {
         if (min_stack.empty()) min_stack.emplace_back(val, val);
