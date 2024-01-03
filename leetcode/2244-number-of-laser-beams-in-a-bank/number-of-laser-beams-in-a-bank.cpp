@@ -2,7 +2,7 @@ class Solution {
 public:
     int numberOfBeams(vector<string>& bank) {
         auto tracker{0}, finder{0}, checker{0};
-        vector<int> row_counter;
+        vector<int> row_counter{};
 
         for (const auto& row : bank) {
             for (const auto& i : row) {
