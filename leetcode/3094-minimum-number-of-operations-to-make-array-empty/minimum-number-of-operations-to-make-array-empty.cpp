@@ -1,9 +1,9 @@
 class Solution {
 public:
-    int minOperations(vector<int>& nums) {
+    int_least32_t minOperations(vector<int>& nums) {
         size_t counter = 0;
-        unordered_map<int, size_t>mapping{};
-        for_each(nums.begin(), nums.end(), [&mapping](const int& x) {
+        unordered_map<int_least32_t, size_t>mapping{};
+        for_each(nums.begin(), nums.end(), [&mapping](const int_least32_t& x) {
             mapping[x]++;
         });
         
