@@ -1,25 +1,18 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums) {
-        unordered_map<int, int> map;
-        int count = 0;
+        auto counter{0};
+        auto mapping = unordered_map<int, int>{};
 
-        for (int num : nums) {
-            map[num]++;
-        }
+        for (const auto& x : nums) 
+            mapping[x]++;
+        
 
-        for (auto it : map) {
-            if (it.second == 1) {
-                return -1;
-            }
-            if (it.second % 3 == 0) {
-                count += (it.second/3);
-            } else {
-                count += (it.second/3) + 1;
-            }
-        }
+        for (const auto& [x, y] : mapping)
+            if (y == 1) return -1;
+            else counter = counter + ((y + 2) / 3);
 
-        return count;
+        return counter;
         
     }
 };
