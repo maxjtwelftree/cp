@@ -4,7 +4,7 @@ struct Job {
 
 class Solution {
 public:
-    int findLastNonConflictingJob(vector<Job>& profit_vector, int i) {
+    [[nodiscard]] int findLastNonConflictingJob(vector<Job>& profit_vector, int i) {
         int low = 0, high = i - 1;
 
         while (low <= high) {
@@ -22,7 +22,7 @@ public:
         return -1;
     }
 
-    int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
+    [[nodiscard]] int jobScheduling(vector<int>& startTime, vector<int>& endTime, vector<int>& profit) {
         auto current_profit = 0, final_profit = 0;
         vector<Job> profit_vector;
 
