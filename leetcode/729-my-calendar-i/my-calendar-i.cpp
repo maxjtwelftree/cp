@@ -1,11 +1,11 @@
 struct MyCalendar {    
-    vector<pair<int, int>> pairings{};
+    map<int, int> pairings{};
     bool book(int start, int end) {
-        for (const auto& i : pairings) 
-            if (max(i.first, start) < min(i.second, end)) 
-                return false;
-                
-        pairings.emplace_back(start, end);
-        return true;
+        auto first = pairings.upper_bound(start);
+        if (first == pairings.end() || end <= first->second) {
+            pairings[end] = start;
+            return true;
+        }
+        return false;
     }
 };
