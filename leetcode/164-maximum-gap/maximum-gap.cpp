@@ -1,6 +1,6 @@
 struct Solution {
-    [[nodiscard]] int maximumGap(vector<int>& nums) {
-        auto current_maximum = 0;
+    [[nodiscard]] int_least32_t maximumGap(vector<int>& nums) {
+        int_least32_t current_maximum = 0;
         ranges::sort(nums);
 
         for (size_t i = 1; i < nums.size(); ++i)
