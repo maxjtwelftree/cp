@@ -7,7 +7,7 @@ struct Solution {
     }
 
     [[nodiscard]] int rangeSumBST(TreeNode* root, int low, int high) const {
-        auto sum = 0;
+        int_least32_t sum = 0;
         dfs(root, low, high, sum);
         return sum;
     }
