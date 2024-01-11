@@ -1,4 +1,4 @@
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        return add(a,b)
-        
+        sum = (a + b)
+        return sum 
