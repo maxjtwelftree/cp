@@ -1,14 +1,15 @@
 struct Solution {
     [[nodiscard]] int minSteps(string s, string t) {
-        unordered_map<char, int> map1{};
-        unordered_map<char, int> map2{};
-        int_least32_t tracking{0};
+        array<int, 26> freqDiff{}; 
 
-        for (const auto& x : s) map1[x]++;
-        for (const auto& x : t) map2[x]++;
+        for (char ch : s) freqDiff[ch - 'a']++;
+        for (char ch : t) freqDiff[ch - 'a']--;
 
-        for (auto [first, second] : map1) 
-            if (map2[first] < second) tracking += second - map2[first];
+        int tracking = 0;
+
+        for (int diff : freqDiff) {
+            if (diff > 0) tracking += diff;
+        }
 
         return tracking;
     }
