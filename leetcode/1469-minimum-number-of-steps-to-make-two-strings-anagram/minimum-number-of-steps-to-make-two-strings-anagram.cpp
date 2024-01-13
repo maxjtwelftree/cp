@@ -1,16 +1,14 @@
 struct Solution {
-    [[nodiscard]] int minSteps(string s, string t) {
-        array<int, 26> freqDiff{}; 
+    int minSteps(const std::string& s, const std::string& t) {
+        std::array<int_least32_t, 26> freqs{}; 
 
-        for (char ch : s) freqDiff[ch - 'a']++;
-        for (char ch : t) freqDiff[ch - 'a']--;
+        for (const auto& ch : s) freqs[ch - 'a']++;
+        for (const auto& ch : t) freqs[ch - 'a']--;
 
-        int tracking = 0;
-
-        for (int diff : freqDiff) {
-            if (diff > 0) tracking += diff;
-        }
-
+        int_least32_t tracking{0};
+        for (int_least32_t difference : freqs) 
+            if (difference > 0) tracking += difference;
+        
         return tracking;
     }
 };
