@@ -2,27 +2,27 @@ struct Solution {
     bool closeStrings(string word1, string word2) {
         if (word1.size() != word2.size()) return false;
 
-        unordered_map<char, int> mapping_1{}, mapping_2{};;
-        for (auto c : word1) mapping_1[c]++;
-        for (auto c : word2) mapping_2[c]++;
+        array<int, 26> freq1{}; // Frequency array for word1
+        array<int, 26> freq2{}; // Frequency array for word2
+        array<bool, 26> exists1{}; // Existence array for word1
+        array<bool, 26> exists2{}; // Existence array for word2
 
-        for (const auto& i : mapping_1) 
-            if (mapping_2.find(i.first) == mapping_2.end()) return false;
-
-        vector<pair<int, int>> out1 (mapping_1.begin(), mapping_1.end());
-        sort(out1.begin(), out1.end(), [] (const auto a, const auto b) {
-            return a.second > b.second;
-        });
-
-        vector<pair<int, int>> out2 (mapping_2.begin(), mapping_2.end());
-        sort(out2.begin(), out2.end(), [] (const auto a, const auto b) {
-            return a.second > b.second;
-        });
-
-        for (size_t i = 0; i < out1.size(); ++i) {
-            if (out1[i].second != out2[i].second) return false;
+        for (char c : word1) {
+            freq1[c - 'a']++;
+            exists1[c - 'a'] = true;
+        }
+        for (char c : word2) {
+            freq2[c - 'a']++;
+            exists2[c - 'a'] = true;
         }
 
-        return true;
+        // Check if both strings contain the same unique characters
+        if (exists1 != exists2) return false;
+
+        // Sort and compare frequencies
+        sort(freq1.begin(), freq1.end());
+        sort(freq2.begin(), freq2.end());
+
+        return freq1 == freq2;
     }
 };
