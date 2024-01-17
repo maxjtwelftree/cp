@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> dp;
-
+    // copied, i learnt a shit tone from this
     bool solve(int ind, int k, int sum, int target, int mask, vector<int>& nums) {
         if(k == 0) return 1;
         if(sum == target) return solve(0, k-1, 0, target, mask, nums);
