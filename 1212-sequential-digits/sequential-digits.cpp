@@ -11,7 +11,7 @@ struct Solution {
         };
         
         vector<int32_t> output;
-        copy_if(arranged.begin(), arranged.end(), back_inserter(output), [low, high] (int32_t a) { 
+        copy_if(arranged.cbegin(), arranged.cend(), back_inserter(output), [low, high] (int32_t a) { 
             return a >= low && a <= high; 
         });
         
