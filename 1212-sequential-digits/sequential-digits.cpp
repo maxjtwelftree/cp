@@ -1,6 +1,6 @@
 struct Solution {
-    [[nodiscard]] std::vector<int> sequentialDigits(int low, int high) {
-        const std::vector<int> arranged = {
+    [[nodiscard]] vector<int> sequentialDigits(int low, int high) {
+        const vector<int32_t> arranged = {
             12, 23, 34, 45, 56, 67, 78, 89,
             123, 234, 345, 456, 567, 678, 789,
             1234, 2345, 3456, 4567, 5678, 6789,
@@ -10,9 +10,10 @@ struct Solution {
             12345678, 23456789, 123456789
         };
         
-        std::vector<int> output;
-        std::copy_if(arranged.begin(), arranged.end(), std::back_inserter(output),
-                     [low, high](int a) { return a >= low && a <= high; });
+        vector<int32_t> output;
+        copy_if(arranged.begin(), arranged.end(), back_inserter(output), [low, high] (int32_t a) { 
+            return a >= low && a <= high; 
+        });
         
         return output;
     }
