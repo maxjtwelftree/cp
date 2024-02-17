@@ -1,5 +1,4 @@
-class Solution {
-public:
+struct Solution {
     int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
         priority_queue<int32_t, vector<int32_t>, greater<int32_t>> pq;
         for (size_t i = 1; i < heights.size(); ++i) {
