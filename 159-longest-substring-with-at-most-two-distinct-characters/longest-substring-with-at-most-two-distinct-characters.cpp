@@ -1,5 +1,5 @@
 struct Solution {
-    [[nodiscard]] int lengthOfLongestSubstringTwoDistinct(string s) {
+    [[nodiscard]] int lengthOfLongestSubstringTwoDistinct(string s) const {
         unordered_map<char, int> mapping{};
         int32_t final_ans = 0, left = 0;
 
