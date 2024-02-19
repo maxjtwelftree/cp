@@ -5,14 +5,10 @@ struct Solution {
 
         for (int right = 0; right < s.length(); ++right) {
             mapping[s[right]] = right;
-
             while (mapping.size() > 2) {
-                if (mapping[s[left]] == left) {
-                    mapping.erase(s[left]);
-                }
+                if (mapping[s[left]] == left) mapping.erase(s[left]);
                 left++;
             }
-
             final_ans = max(final_ans, right - left + 1);
         }
         
