@@ -3,7 +3,7 @@ struct Solution {
         int_least32_t answer = nums.size();
 
         for (size_t i = 0; i < nums.size(); ++i) {
-            answer ^= i, answer ^= nums[i];
+            answer ^= i ^ nums[i];
         }
         
         return answer;
