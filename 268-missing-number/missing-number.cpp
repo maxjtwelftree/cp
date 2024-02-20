@@ -1,14 +1,11 @@
-class Solution {
-public:
-    int missingNumber(vector<int>& nums) {
-        ranges::sort(nums);
+struct Solution {
+    [[nodiscard]] int missingNumber(vector<int>& nums) {
+        int_least32_t answer = nums.size();
 
-        for (int i = 0; i < nums.size(); ++i) {
-            if (nums[i] != i) {
-                return i;
-            } 
+        for (size_t i = 0; i < nums.size(); ++i) {
+            answer ^= i, answer ^= nums[i];
         }
         
-        return nums.size();
+        return answer;
     }
 };
