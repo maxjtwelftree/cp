@@ -1,7 +1,6 @@
-class Solution {
-public:
-    int rangeBitwiseAnd(int left, int right) {
-        while (left < right) right = right & (right - 1);
+struct Solution {
+    [[nodiscard]] int rangeBitwiseAnd(int left, int right) const {
+        while (left < right) right &= (right - 1); 
         return right;
     }
 };
