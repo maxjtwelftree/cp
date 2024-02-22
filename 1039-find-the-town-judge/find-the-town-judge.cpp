@@ -1,11 +1,13 @@
 struct Solution {
-        int findJudge(int N, vector<vector<int>>& trust) {
-        vector<int> count(N + 1, 0);
-        for (auto& t : trust)
-            count[t[0]]--, count[t[1]]++;
-        for (int i = 1; i <= N; ++i) {
-            if (count[i] == N - 1) return i;
-        }
+    int findJudge(int_least32_t n, vector<vector<int_least32_t>>& trust) const {
+        vector<int_least32_t> mapping(n + 1, 0);
+
+        for (const auto& x : trust) 
+            mapping[x[0]]--, mapping[x[1]]++;
+        
+        for (int i = 1; i <= n; ++i) 
+            if (mapping[i] == n - 1) return i;
+        
         return -1;
     }
 };
