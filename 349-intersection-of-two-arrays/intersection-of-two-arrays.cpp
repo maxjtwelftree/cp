@@ -1,14 +1,11 @@
 struct Solution {
     vector<int> intersection(const vector<int>& nums1, const vector<int>& nums2) {
+        unordered_set<int> set(nums1.begin(), nums1.end()); // Create a set from nums1
         vector<int> result;
-        unordered_set<int> seen; 
 
-        for (const int num : nums1) {
-            if (std::ranges::find(nums2, num) != nums2.end() && !seen.contains(num)) {
-                result.push_back(num);
-                seen.insert(num);
-            }
-        }
+        // Filter elements from nums2, adding unique ones to the result
+        std::copy_if(nums2.begin(), nums2.end(), std::back_inserter(result),
+                    [&](int num) { return set.erase(num); }); 
 
         return result;
     }
