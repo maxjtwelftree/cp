@@ -1,7 +1,8 @@
 class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
-        unordered_map<int, int> mapping;
+        array<long long, 2000> mapping;
+
         for (const auto& x : nums1)
             mapping[x]++;
 
